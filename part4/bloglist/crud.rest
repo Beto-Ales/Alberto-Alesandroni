@@ -1,0 +1,111 @@
+# blogs
+# -----
+
+GET http://localhost:3003/api/blogs
+
+###
+
+GET http://localhost:3003/api/blogs/61e1d5117c21a98eb4b07a6f
+
+###
+
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+    "title": "test populate",
+    "author": "test populate Betos",
+    "url": "test populate betos url",
+    "likes": "11",
+    "userId": "621153e48504f231882cb81b"
+}
+
+###
+
+PUT http://localhost:3003/api/blogs/61e1d5117c21a98eb4b07a6f
+Content-Type: application/json
+
+{
+    "title": "test update title",
+    "author": "Betos",
+    "url": "betos url",
+    "likes": "14"
+}
+
+###
+
+DELETE http://localhost:3003/api/blogs/63b891de95bb909d6de7b096
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJldG9HZXIiLCJpZCI6IjYzMjQ0MjQxMjkxZGNmNzBmNzMwMTU2NCIsImlhdCI6MTY3MjkwODY3NX0.3rPkJEpELnyQ2FRwf70vt6evYbv6Jb0egYXyoVMSSAE
+
+
+###
+
+###
+
+# users
+# -----
+
+###
+
+POST http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+  "username":"test new user",
+  "name":"test new user",
+  "password":"test new user"
+}
+
+###
+
+POST http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+  "username":"be",
+  "name":"ger",
+  "password":"be"
+}
+
+###
+
+# login
+# -----
+
+POST http://localhost:3003/api/login
+Content-Type: application/json
+
+{
+  "username":"betoGer",
+  "password":"beto"
+}
+
+###
+
+# post a blog
+# -----------
+
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJldG9HZXIiLCJpZCI6IjYzMjQ0MjQxMjkxZGNmNzBmNzMwMTU2NCIsImlhdCI6MTY3MjkwODY3NX0.3rPkJEpELnyQ2FRwf70vt6evYbv6Jb0egYXyoVMSSAE
+
+{
+    "title": "test token",
+    "author": "test token Betos",
+    "url": "test token betos url"
+}
+
+###
+
+# taking the token to a middleware
+# --------------------------------
+
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJldG9HZXIiLCJpZCI6IjYzMjQ0MjQxMjkxZGNmNzBmNzMwMTU2NCIsImlhdCI6MTY3MjkwODY3NX0.3rPkJEpELnyQ2FRwf70vt6evYbv6Jb0egYXyoVMSSAE
+
+{
+    "title": "test token to middleware",
+    "author": "test token to middleware Betos",
+    "url": "test token to middleware betos url"
+}
