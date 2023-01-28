@@ -102,6 +102,3 @@ test('<BlogForm /> calls the event handler with the right details', async () => 
   expect(createBlog.mock.calls[0][0].author).toBe('testing author')
   expect(createBlog.mock.calls[0][0].url).toBe('testing url')
 })
-
-
-// https://fullstackopen.com/en/part5/end_to_end_testing#exercises-5-17-5-22

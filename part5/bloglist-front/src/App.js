@@ -80,7 +80,7 @@ const App = () => {
         // setTitle('')
         // setAuthor('')
         // setUrl('')
-        setErrorMessage(`A new blog ${returnedBlog.title} by ${returnedBlog.author} added`)
+        setErrorMessage(`A new blog ${returnedBlog.title} by ${returnedBlog.author} added`, 'green')
         setTimeout(() => {
           setErrorMessage(null)
         }, 5000)
@@ -97,7 +97,7 @@ const App = () => {
       }
       return blog
     }))
-    setErrorMessage('Blog updated')
+    setErrorMessage('Blog updated', 'green')
     setTimeout(() => {
       setErrorMessage(null)
     }, 5000)
@@ -181,7 +181,7 @@ const App = () => {
       {/* {console.log(blogs)} */}
       <p>display blogs</p>
       {blogs
-        .sort((a, b) => a.likes - b.likes)
+        .sort((a, b) => b.likes - a.likes)
         .map(blog => {
         // blog.user && console.log(blog.user.id)    // blog.user.id
           return <Blog key={blog.id} blog={blog} currentUser={user} updateBlog={updateBlog} removeBlog={removeBlog} />
@@ -198,15 +198,15 @@ const App = () => {
 
       {user === null ?
         // loginForm() :
-        <Togglable buttonLabel="Log in">
-          <LoginForm
-            handleLogin={handleLogin}
-            // username={username}
-            // setUsername={setUsername}
-            // password={password}
-            // setPassword={setPassword}
-          />
-        </Togglable> :
+        // <Togglable buttonLabel="Log in">
+        <LoginForm
+          handleLogin={handleLogin}
+          // username={username}
+          // setUsername={setUsername}
+          // password={password}
+          // setPassword={setPassword}
+        /> :
+        // </Togglable> :
         <div>
           <p>{user.name} logged in</p>
           <button onClick={handleLogout}>Log out</button>
